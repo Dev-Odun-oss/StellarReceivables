@@ -1,4 +1,4 @@
-# StellarRecievales
+# StellarReceivables
 
 Decentralized harvest invoice financing protocol built on Stellar/Soroban.
 
