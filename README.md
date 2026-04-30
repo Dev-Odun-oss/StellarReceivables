@@ -1,4 +1,4 @@
-# AgroLedger
+# StellarRecievales
 
 Decentralized harvest invoice financing protocol built on Stellar/Soroban.
 
