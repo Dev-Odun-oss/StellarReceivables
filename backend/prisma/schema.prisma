@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Invoice {
+  id              String    @id @default(cuid())
+  onChainId       BigInt?   @unique
+  farmer          String
+  cropType        String
+  expectedYield   Float
+  amountRequested Float
+  dueDate         DateTime
+  status          String    @default("PENDING")
+  actualYield     Float?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  financings      Financing[]
+}
+
+model Financing {
+  id          String   @id @default(cuid())
+  onChainId   BigInt?  @unique
+  invoiceId   String
+  lender      String
+  amount      Float
+  fundedAt    DateTime @default(now())
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id])
+}

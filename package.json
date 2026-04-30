@@ -1,0 +1,12 @@
+{
+  "name": "agroledger",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run start:dev",
+    "build:contract": "cd contracts && cargo build --release --target wasm32-unknown-unknown",
+    "test:contract": "cd contracts && cargo test --features testutils",
+    "deploy": "bash scripts/deploy.sh",
+    "fund-testnet": "bash scripts/fund-testnet.sh"
+  }
+}
